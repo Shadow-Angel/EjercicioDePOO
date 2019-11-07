@@ -109,7 +109,7 @@ public class Persona implements  MetodosPersona{
     }
 
     @Override
-    public String GeneraDNI(){
+    public void GeneraDNI(){
         int a1 = (int) Math.random();
         int a2 = (int) Math.random();
         int a3 = (int) Math.random();
@@ -119,7 +119,7 @@ public class Persona implements  MetodosPersona{
         int a7 = (int) Math.random();
         int a8 = (int) Math.random();
         String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8;
-        return DNI;
+        this.DNI = DNI;
     }
 
     public boolean esMayorDeEdad(){
@@ -136,6 +136,7 @@ public class Persona implements  MetodosPersona{
         }
     }
 
+    @Override
     public String toString(){
         String Datos = "nombre: " + this.nombre + "\n" +
                 "edad: " + this.edad + "\n" +

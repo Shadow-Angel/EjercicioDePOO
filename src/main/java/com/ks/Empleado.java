@@ -5,11 +5,12 @@ public class Empleado extends Persona implements MetodosPersona{
     private String puesto;
 
     public Empleado(){
-
+        this.puesto = "Ninguno";
+        this.NoEmpleado = 0;
     }
 
     @Override
-    public String GeneraDNI(){
+    public void GeneraDNI(){
         int a1 = (int) Math.random();
         int a2 = (int) Math.random();
         int a3 = (int) Math.random();
@@ -21,7 +22,7 @@ public class Empleado extends Persona implements MetodosPersona{
         int a9 = (int) Math.random();
         int a10 = (int) Math.random();
         String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8 + "" + a9 + "" + a10;
-        return DNI;
+        this.DNI = DNI;
     }
 
     public int getNoEmpleado() {
@@ -38,6 +39,20 @@ public class Empleado extends Persona implements MetodosPersona{
 
     public void setPuesto(String puesto) {
         this.puesto = puesto;
+    }
+
+    @Override
+    public String toString(){
+        String Datos = "nombre: " + this.nombre + "\n" +
+                "edad: " + this.edad + "\n" +
+                "DNI: " + this.DNI + "\n" +
+                "peso: " + this.peso + "\n" +
+                "altura: " + this.altura + "\n" +
+                this.CuentaP.toString() +
+                "Puesto: " + this.puesto +
+                "No. Empleado: " + this.NoEmpleado;
+
+        return Datos;
     }
 
 }
