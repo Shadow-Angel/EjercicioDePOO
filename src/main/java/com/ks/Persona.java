@@ -17,7 +17,7 @@ public class Persona implements  MetodosPersona{
         this.sexo = ' ';
         this.peso = 0;
         this.altura= 0;
-        // no se como llamar al metodo dentro del objeto.
+        this.CuentaP = new Cuenta();
     }
     public Persona(String nombre,char sexo,int edad,String tarjeta){
         this.nombre=nombre;
@@ -118,7 +118,7 @@ public class Persona implements  MetodosPersona{
         int a6 = (int) Math.random();
         int a7 = (int) Math.random();
         int a8 = (int) Math.random();
-        String DNI = "" + a1 + a2 + a3 + + a4 + a5+ a6 + a7 + a8;
+        String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8;
         return DNI;
     }
 

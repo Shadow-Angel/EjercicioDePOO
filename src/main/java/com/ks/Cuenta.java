@@ -5,6 +5,11 @@ public class Cuenta {
     private String tarjeta;
     private float cantidad;
 
+    public  Cuenta(){
+        this.cantidad = 0;
+        this.tarjeta ="";
+    }
+
     public Cuenta(String tarjeta,float cantidad){
         if(tarjeta.length() == 15 || tarjeta.length() == 16){
             this.tarjeta = tarjeta;
