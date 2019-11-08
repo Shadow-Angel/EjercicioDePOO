@@ -163,9 +163,9 @@ public class Persona implements MetodosPersona
 
     public void comprobarSexo(char sexo)
     {
-        if (this.sexo == sexo)
+        if (this.sexo != sexo)
         {
-            this.sexo = 'h';
+            this.sexo = 'H';
         }
     }
 
