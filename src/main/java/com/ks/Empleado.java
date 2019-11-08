@@ -5,7 +5,9 @@ public class Empleado extends Persona implements MetodosPersona{
     private String puesto;
 
     public Empleado(){
-        this.puesto = "Ninguno";
+        this.puesto = "N" +
+                "" +
+                "inguno";
         this.NoEmpleado = 0;
     }
 
@@ -22,7 +24,7 @@ public class Empleado extends Persona implements MetodosPersona{
         int a9 = (int) Math.random();
         int a10 = (int) Math.random();
         String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8 + "" + a9 + "" + a10;
-        this.DNI = DNI;
+        this.setDNI(DNI);
     }
 
     public int getNoEmpleado() {
@@ -45,13 +47,12 @@ public class Empleado extends Persona implements MetodosPersona{
     public String toString(){
         String Datos = "nombre: " + this.nombre + "\n" +
                 "edad: " + this.edad + "\n" +
-                "DNI: " + this.DNI + "\n" +
+                "DNI: " + this.getDNI() + "\n" +
                 "peso: " + this.peso + "\n" +
                 "altura: " + this.altura + "\n" +
-                this.CuentaP.toString() +
-                "Puesto: " + this.puesto +
+                this.CuentaP.toString() + "\n" +
+                "Puesto: " + this.puesto + "\n" +
                 "No. Empleado: " + this.NoEmpleado;
-
         return Datos;
     }
 
