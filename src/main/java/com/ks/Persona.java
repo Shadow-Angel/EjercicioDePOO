@@ -20,8 +20,8 @@ public class Persona implements MetodosPersona
         this.edad = 0;
         this.sexo = ' ';
         this.peso = 0;
-        this.altura = 0;
-        // no se como llamar al metodo dentro del objeto.
+        this.altura= 0;
+        this.CuentaP = new Cuenta();
     }
 
     public Persona(String nombre, char sexo, int edad, String tarjeta)
@@ -134,7 +134,7 @@ public class Persona implements MetodosPersona
     }
 
     @Override
-    public String GeneraDNI()
+    public void GeneraDNI()
     {
         int a1 = (int) Math.random();
         int a2 = (int) Math.random();
@@ -144,11 +144,11 @@ public class Persona implements MetodosPersona
         int a6 = (int) Math.random();
         int a7 = (int) Math.random();
         int a8 = (int) Math.random();
-        String DNI = "" + a1 + a2 + a3 + +a4 + a5 + a6 + a7 + a8;
+        String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8;
 
         String rand = String.valueOf(new Random().nextLong());
         String leftPad = String.format("%80d", 1);
-        return DNI;
+        this.DNI = DNI;
     }
 
     public boolean esMayorDeEdad()
@@ -171,9 +171,15 @@ public class Persona implements MetodosPersona
         }
     }
 
-    public String toString()
-    {
-        String Datos = "nombre: " + this.nombre + "\n" + "edad: " + this.edad + "\n" + "DNI: " + this.DNI + "\n" + "peso: " + this.peso + "\n" + "altura: " + this.altura + "\n" + this.CuentaP.toString();
+
+    @Override
+    public String toString(){
+        String Datos = "nombre: " + this.nombre + "\n" +
+                "edad: " + this.edad + "\n" +
+                "DNI: " + this.DNI + "\n" +
+                "peso: " + this.peso + "\n" +
+                "altura: " + this.altura + "\n" +
+                this.CuentaP.toString();
 
         return Datos;
     }
