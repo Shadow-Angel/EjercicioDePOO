@@ -1,5 +1,7 @@
 package com.ks;
 
+import java.util.Random;
+
 public class Empleado extends Persona implements MetodosPersona{
     private int NoEmpleado;
     private String puesto;
@@ -12,19 +14,17 @@ public class Empleado extends Persona implements MetodosPersona{
     }
 
     @Override
-    public void GeneraDNI(){
-        int a1 = (int) Math.random();
-        int a2 = (int) Math.random();
-        int a3 = (int) Math.random();
-        int a4 = (int) Math.random();
-        int a5 = (int) Math.random();
-        int a6 = (int) Math.random();
-        int a7 = (int) Math.random();
-        int a8 = (int) Math.random();
-        int a9 = (int) Math.random();
-        int a10 = (int) Math.random();
-        String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8 + "" + a9 + "" + a10;
-        this.setDNI(DNI);
+    public void GeneraDNI()
+    {
+        String DNI = String.valueOf(new Random().nextLong());
+        if(DNI.length() > 8){
+            DNI = DNI.substring(0,10);
+        }
+        this.DNI = DNI;
+        /*
+        //this.DNI.format("%020d",1);
+        String leftPad = String.format("%80d", 1);
+        */
     }
 
     public int getNoEmpleado() {
