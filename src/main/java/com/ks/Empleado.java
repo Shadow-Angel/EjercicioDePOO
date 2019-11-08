@@ -54,7 +54,7 @@ public class Empleado extends Persona implements MetodosPersona{
         PrintWriter pw = null;
         try
         {
-            fichero = new FileWriter("C://Users//Pc//Desktop>Datos.txt");
+            fichero = new FileWriter("C://Users//Pc//Desktop//Datos.txt");
             pw = new PrintWriter(fichero);
 
             pw.println(Datos);
