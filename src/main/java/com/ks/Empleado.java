@@ -1,5 +1,7 @@
 package com.ks;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Random;
 
 public class Empleado extends Persona implements MetodosPersona{
@@ -7,9 +9,7 @@ public class Empleado extends Persona implements MetodosPersona{
     private String puesto;
 
     public Empleado(){
-        this.puesto = "N" +
-                "" +
-                "inguno";
+        this.puesto = "Ninguno";
         this.NoEmpleado = 0;
     }
 
@@ -26,7 +26,6 @@ public class Empleado extends Persona implements MetodosPersona{
         String leftPad = String.format("%80d", 1);
         */
     }
-
     public int getNoEmpleado() {
         return NoEmpleado;
     }
@@ -43,6 +42,34 @@ public class Empleado extends Persona implements MetodosPersona{
         this.puesto = puesto;
     }
 
+    @Override
+    public void GenTexto(){
+        String Datos = "nombre: " + this.nombre + "\n" +
+                "edad: " + this.edad + "\n" +
+                "DNI: " + this.getDNI() + "\n" +
+                "peso: " + this.peso + "\n" +
+                "altura: " + this.altura + "\n" +
+                this.CuentaP.toString();
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("C://Users//Pc//Desktop>Datos.txt");
+            pw = new PrintWriter(fichero);
+
+            pw.println(Datos);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero)
+                    fichero.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
     @Override
     public String toString(){
         String Datos = "nombre: " + this.nombre + "\n" +
