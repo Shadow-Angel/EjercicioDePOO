@@ -136,22 +136,15 @@ public class Persona implements MetodosPersona
     @Override
     public void GeneraDNI()
     {
-        Random opbk = new Random(666);
-        opbk.nextInt();
-        int a1 = opbk.nextInt()%10;
-        int a2 = opbk.nextInt()%10;
-        int a3 = opbk.nextInt()%10;
-        int a4 = opbk.nextInt()%10;
-        int a5 = opbk.nextInt()%10;
-        int a6 = opbk.nextInt()%10;
-        int a7 = opbk.nextInt()%10;
-        int a8 = opbk.nextInt()%10;
-        String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8;
+        String DNI = String.valueOf(new Random().nextLong());
+        if(DNI.length() > 8){
+            DNI = DNI.substring(0,8);
+        }
+        this.DNI = DNI;
         /*
-        String rand = String.valueOf(new Random().nextLong());
+        //this.DNI.format("%020d",1);
         String leftPad = String.format("%80d", 1);
         */
-        this.setDNI(DNI);
     }
 
     public boolean esMayorDeEdad()

@@ -8,13 +8,15 @@ public class PersonaTest extends TestCase
 
     public void testCalcularIMC()
     {
+
     }
 
     public void testGeneraDNI()
     {
         Persona GenerandoDNI = new Persona();
+
         GenerandoDNI.GeneraDNI();
-        System.out.println("DNI Prueba: " + GenerandoDNI.getDNI());
+        Assert.assertEquals(8,GenerandoDNI.getDNI().length());
     }
 
     public void testEsMayorDeEdad()
