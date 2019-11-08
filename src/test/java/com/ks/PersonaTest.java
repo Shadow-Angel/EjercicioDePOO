@@ -12,6 +12,9 @@ public class PersonaTest extends TestCase
 
     public void testGeneraDNI()
     {
+        Persona GenerandoDNI = new Persona();
+        GenerandoDNI.GeneraDNI();
+        System.out.println("DNI Prueba: " + GenerandoDNI.getDNI());
     }
 
     public void testEsMayorDeEdad()

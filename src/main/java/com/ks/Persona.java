@@ -136,19 +136,22 @@ public class Persona implements MetodosPersona
     @Override
     public void GeneraDNI()
     {
-        int a1 = (int) Math.random();
-        int a2 = (int) Math.random();
-        int a3 = (int) Math.random();
-        int a4 = (int) Math.random();
-        int a5 = (int) Math.random();
-        int a6 = (int) Math.random();
-        int a7 = (int) Math.random();
-        int a8 = (int) Math.random();
+        Random opbk = new Random(666);
+        opbk.nextInt();
+        int a1 = opbk.nextInt()%10;
+        int a2 = opbk.nextInt()%10;
+        int a3 = opbk.nextInt()%10;
+        int a4 = opbk.nextInt()%10;
+        int a5 = opbk.nextInt()%10;
+        int a6 = opbk.nextInt()%10;
+        int a7 = opbk.nextInt()%10;
+        int a8 = opbk.nextInt()%10;
         String DNI = "" + a1 + "" + a2 + "" + a3 + "" + a4 + "" + a5 + "" + a6 + "" + a7 + "" + a8;
-
+        /*
         String rand = String.valueOf(new Random().nextLong());
         String leftPad = String.format("%80d", 1);
-        this.DNI = DNI;
+        */
+        this.setDNI(DNI);
     }
 
     public boolean esMayorDeEdad()
@@ -176,7 +179,7 @@ public class Persona implements MetodosPersona
     public String toString(){
         String Datos = "nombre: " + this.nombre + "\n" +
                 "edad: " + this.edad + "\n" +
-                "DNI: " + this.DNI + "\n" +
+                "DNI: " + this.getDNI() + "\n" +
                 "peso: " + this.peso + "\n" +
                 "altura: " + this.altura + "\n" +
                 this.CuentaP.toString();
@@ -185,4 +188,11 @@ public class Persona implements MetodosPersona
     }
 
 
+    public String getDNI() {
+        return DNI;
+    }
+
+    public void setDNI(String DNI) {
+        this.DNI = DNI;
+    }
 }
