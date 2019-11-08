@@ -1,5 +1,7 @@
 package com.ks;
 
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.util.Random;
 
 import static java.lang.Math.pow;
@@ -180,6 +182,34 @@ public class Persona implements MetodosPersona
         return Datos;
     }
 
+    @Override
+    public void GenTexto(){
+        String Datos = "nombre: " + this.nombre + "\n" +
+                "edad: " + this.edad + "\n" +
+                "DNI: " + this.getDNI() + "\n" +
+                "peso: " + this.peso + "\n" +
+                "altura: " + this.altura + "\n" +
+                this.CuentaP.toString();
+        FileWriter fichero = null;
+        PrintWriter pw = null;
+        try
+        {
+            fichero = new FileWriter("C://Users//Pc//Desktop>Datos.txt");
+            pw = new PrintWriter(fichero);
+
+            pw.println(Datos);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (null != fichero)
+                    fichero.close();
+            } catch (Exception e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
 
     public String getDNI() {
         return DNI;

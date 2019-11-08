@@ -28,6 +28,7 @@ public class Main {
             System.out.println("No es mayor de edad");
         }
         System.out.println(Pers.toString());
+        Pers.GenTexto();
 
     }
 }
