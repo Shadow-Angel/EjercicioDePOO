@@ -9,26 +9,26 @@ public class PersonaTest extends TestCase
 
     public void testCalcularIMC()
     {
-        Persona Valormenos20 = new Persona();
-        Valormenos20.setPeso(18);
-        Valormenos20.setAltura(1);
+        Persona valorMenor20 = new Persona();
+        valorMenor20.setPeso(18);
+        valorMenor20.setAltura(1);
 
-        Persona Valor20 = new Persona();
-        Valor20.setPeso(20);
-        Valor20.setAltura(1);
+        Persona valor20 = new Persona();
+        valor20.setPeso(20);
+        valor20.setAltura(1);
 
-        Persona Valormayor25 = new Persona();
-        Valormayor25.setPeso(26);
-        Valormayor25.setAltura(1);
+        Persona valorMayor25 = new Persona();
+        valorMayor25.setPeso(26);
+        valorMayor25.setAltura(1);
 
-        Persona Valormayor20peromenor25 = new Persona();
-        Valormayor20peromenor25.setPeso(22);
-        Valormayor20peromenor25.setAltura(1);
+        Persona valorMayor20PeroMenor25 = new Persona();
+        valorMayor20PeroMenor25.setPeso(22);
+        valorMayor20PeroMenor25.setAltura(1);
 
-        Assert.assertEquals(0,Valor20.calcularIMC());
-        Assert.assertEquals(1,Valormayor25.calcularIMC());
-        Assert.assertEquals(-1,Valormenos20.calcularIMC());
-        Assert.assertEquals(0,Valormayor20peromenor25.calcularIMC());
+        Assert.assertEquals(0,valor20.calcularIMC());
+        Assert.assertEquals(1,valorMayor25.calcularIMC());
+        Assert.assertEquals(-1,valorMenor20.calcularIMC());
+        Assert.assertEquals(0,valorMayor20PeroMenor25.calcularIMC());
     }
 
     public void testGeneraDNI()
@@ -64,12 +64,12 @@ public class PersonaTest extends TestCase
     public void testComprobarSexo()
     {
         System.out.println(" ------------ INICIANDO EL TEST DE testComprobarSexo en la clase " + this.getClass().getName());
-        Persona Mujer = new Persona();
-        Mujer.setSexo('M');
-        Mujer.comprobarSexo('M');
-        Assert.assertEquals('M',Mujer.getSexo());
-        Mujer.comprobarSexo('H');
-        Assert.assertEquals('H',Mujer.getSexo());
+        Persona mujer = new Persona();
+        mujer.setSexo('M');
+        mujer.comprobarSexo('M');
+        Assert.assertEquals('M',mujer.getSexo());
+        mujer.comprobarSexo('H');
+        Assert.assertEquals('H',mujer.getSexo());
 
 
     }
