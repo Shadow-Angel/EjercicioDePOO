@@ -2,27 +2,33 @@ package com.ks.recursosHumanos;
 
 import java.util.Random;
 
+import static java.lang.Math.abs;
+
 public class Empleado extends Persona {
-    private int NoEmpleado;
+    private int noEmpleado;
     private String puesto;
 
     public Empleado(){
         this.puesto = "Ninguno";
-        this.NoEmpleado = 0;
+        this.noEmpleado = 0;
+        this.dni = generaDNI();
     }
 
     @Override
-    public void GeneraDNI()
+    public  String generaDNI()
     {
-        String DNI = String.valueOf(new Random().nextLong());
-        this.dni = String.format("%.10d",DNI);
+        String  dni = String.format("%010d",abs(new Random().nextLong()));
+        if(dni.length() >= 10){
+            dni = dni.substring(0,10);
+        }
+        return dni;
     }
     public int getNoEmpleado() {
-        return NoEmpleado;
+        return noEmpleado;
     }
 
     public void setNoEmpleado(int noEmpleado) {
-        NoEmpleado = noEmpleado;
+        this.noEmpleado = noEmpleado;
     }
 
     public String getPuesto() {
@@ -39,15 +45,15 @@ public class Empleado extends Persona {
     }
     @Override
     public String toString(){
-        String Datos = "nombre: " + this.nombre + "\n" +
+        String datos = "nombre: " + this.nombre + "\n" +
                 "edad: " + this.edad + "\n" +
                 "DNI: " + this.getDni() + "\n" +
                 "peso: " + this.peso + "\n" +
                 "altura: " + this.altura + "\n" +
                 this.cuentaP.toString() + "\n" +
                 "Puesto: " + this.puesto + "\n" +
-                "No. Empleado: " + this.NoEmpleado;
-        return Datos;
+                "No. Empleado: " + this.noEmpleado;
+        return datos;
     }
 
 }
