@@ -27,6 +27,7 @@ public class Persona
         this.peso = 0;
         this.altura= 0;
         this.cuentaP = new Cuenta();
+        this.dni = this.generaDNI();
     }
 
     public Persona(String nombre, char sexo, int edad, String tarjeta)
@@ -37,6 +38,7 @@ public class Persona
         this.peso = 0;
         this.altura = 0;
         this.cuentaP = new Cuenta(tarjeta);
+        this.dni = this.generaDNI();
     }
 
     public Persona(String nombre, char sexo, int edad, float peso, float altura, String tarjeta)
@@ -47,6 +49,7 @@ public class Persona
         this.peso = peso;
         this.altura = altura;
         this.cuentaP = new Cuenta(tarjeta);
+        this.dni = generaDNI();
     }
 
     public String getNombre()
@@ -138,17 +141,14 @@ public class Persona
         return opc;
     }
 
-    public void GeneraDNI()
-    {
-        String dni = String.valueOf(abs(new Random().nextLong()));
+    public  String generaDNI(){
+        String  dni = String.format("%08d",abs(new Random().nextLong()));
         if(dni.length() >= 8){
             dni = dni.substring(0,8);
         }
-        this.dni = dni;
-        /*
-        String leftPad = String.format("%80d", 1);
-        */
+        return dni;
     }
+
 
     public boolean esMayorDeEdad()
     {
