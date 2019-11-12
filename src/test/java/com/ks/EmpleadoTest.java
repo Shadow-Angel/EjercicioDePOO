@@ -7,9 +7,13 @@ import org.junit.Assert;
 public class EmpleadoTest extends TestCase {
 
     public void testGeneraDNI() {
-        Empleado GenerandoDNI = new Empleado();
 
-        GenerandoDNI.GeneraDNI();
-        Assert.assertEquals(10,GenerandoDNI.getDni().length());
+        System.out.println(" ------------ INICIANDO EL TEST DE testGeneraDNI() en la clase " + this.getClass().getName());
+        for (int i = 1; i <= 1000;i++){
+            Empleado generandoDNI = new Empleado();
+            // System.out.println(generandoDNI.getDni());
+            Assert.assertEquals(10,generandoDNI.getDni().length());
+            Assert.assertTrue(Long.parseLong(generandoDNI.getDni()) > 0);
+        }
     }
 }
