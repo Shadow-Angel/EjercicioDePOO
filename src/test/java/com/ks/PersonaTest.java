@@ -1,6 +1,6 @@
 package com.ks;
 
-import com.sun.xml.internal.ws.policy.AssertionSet;
+import com.ks.recursosHumanos.Persona;
 import junit.framework.TestCase;
 import org.junit.Assert;
 
@@ -33,10 +33,13 @@ public class PersonaTest extends TestCase
 
     public void testGeneraDNI()
     {
-        Persona GenerandoDNI = new Persona();
+        Persona generandoDNI = new Persona();
 
-        GenerandoDNI.GeneraDNI();
-        Assert.assertEquals(8,GenerandoDNI.getDNI().length());
+        for (int i = 1; i <= 100;i++){
+            generandoDNI.GeneraDNI();
+            System.out.println(generandoDNI.getDni());
+            Assert.assertEquals(8,generandoDNI.getDni().length());
+        }
     }
 
     public void testEsMayorDeEdad()

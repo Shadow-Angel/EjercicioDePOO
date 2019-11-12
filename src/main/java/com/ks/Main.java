@@ -1,34 +1,37 @@
 package com.ks;
 
+import com.ks.recursosHumanos.Empleado;
+import com.ks.recursosHumanos.Persona;
+
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
-        Persona Pers = new Empleado();
-        Pers.GeneraDNI();
+        Persona pers = new Empleado();
+        pers.GeneraDNI();
         System.out.println("Bienvenido, teclea el nombre");
-        Pers.setNombre(leer.next());
+        pers.setNombre(leer.next());
         System.out.println("teclea la edad");
-        Pers.setEdad(leer.nextInt());
+        pers.setEdad(leer.nextInt());
         System.out.println("teclea el sexo");
-        Pers.setSexo(leer.next().charAt(0));
+        pers.setSexo(leer.next().charAt(0));
         System.out.println("teclea el peso");
-        Pers.setPeso(leer.nextFloat());
+        pers.setPeso(leer.nextFloat());
         System.out.println("Teclea el numero de tarjeta");
-        Pers.setTarjeta(leer.next());
+        pers.setTarjeta(leer.next());
         System.out.println("Teclea la cantidad ");
-        Pers.setCantidad(leer.nextFloat());
+        pers.setCantidad(leer.nextFloat());
         System.out.println("Teclea la altura");
-        Pers.setAltura(leer.nextFloat());
-        if(Pers.esMayorDeEdad() == true){
+        pers.setAltura(leer.nextFloat());
+        if(pers.esMayorDeEdad() == true){
             System.out.println("es mayor de edad");
         }else{
             System.out.println("No es mayor de edad");
         }
-        System.out.println(Pers.toString());
-        Pers.GenTexto();
+        System.out.println(pers.toString());
+        pers.genTexto();
 
     }
 }

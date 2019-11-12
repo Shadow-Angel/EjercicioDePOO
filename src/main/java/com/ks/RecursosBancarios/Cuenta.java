@@ -1,4 +1,4 @@
-package com.ks;
+package com.ks.RecursosBancarios;
 
 
 public class Cuenta {
@@ -26,19 +26,19 @@ public class Cuenta {
     }
 
 
-    public void SetTarjeta(String tarjeta){
+    public void setTarjeta(String tarjeta){
         this.tarjeta = tarjeta;
     }
 
-    public void SetCantidad(float cantidad){
+    public void setCantidad(float cantidad){
         this.cantidad = cantidad;
     }
 
-    public String GetTarjeta(){
+    public String getTarjeta(){
         return this.tarjeta;
     }
 
-    public float GetCantidad(){
+    public float getCantidad(){
         return this.cantidad;
     }
 

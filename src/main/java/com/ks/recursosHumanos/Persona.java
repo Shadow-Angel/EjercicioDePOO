@@ -1,4 +1,6 @@
-package com.ks;
+package com.ks.recursosHumanos;
+
+import com.ks.RecursosBancarios.Cuenta;
 
 import java.io.FileWriter;
 import java.io.PrintWriter;
@@ -6,15 +8,15 @@ import java.util.Random;
 
 import static java.lang.Math.pow;
 
-public class Persona implements MetodosPersona
+public class Persona
 {
     protected String nombre;
     protected int edad;
-    protected String DNI;
+    protected String dni;
     protected char sexo;
     protected float peso;
     protected float altura;
-    protected Cuenta CuentaP;
+    protected Cuenta cuentaP;
 
     public Persona()
     {
@@ -23,7 +25,7 @@ public class Persona implements MetodosPersona
         this.sexo = ' ';
         this.peso = 0;
         this.altura= 0;
-        this.CuentaP = new Cuenta();
+        this.cuentaP = new Cuenta();
     }
 
     public Persona(String nombre, char sexo, int edad, String tarjeta)
@@ -33,7 +35,7 @@ public class Persona implements MetodosPersona
         this.sexo = sexo;
         this.peso = 0;
         this.altura = 0;
-        this.CuentaP = new Cuenta(tarjeta);
+        this.cuentaP = new Cuenta(tarjeta);
     }
 
     public Persona(String nombre, char sexo, int edad, float peso, float altura, String tarjeta)
@@ -43,7 +45,7 @@ public class Persona implements MetodosPersona
         this.sexo = sexo;
         this.peso = peso;
         this.altura = altura;
-        this.CuentaP = new Cuenta(tarjeta);
+        this.cuentaP = new Cuenta(tarjeta);
     }
 
     public String getNombre()
@@ -98,22 +100,22 @@ public class Persona implements MetodosPersona
 
     public void setTarjeta(String tarjeta)
     {
-        CuentaP.SetTarjeta(tarjeta);
+        cuentaP.setTarjeta(tarjeta);
     }
 
     public void setCantidad(float cantidad)
     {
-        CuentaP.SetCantidad(cantidad);
+        cuentaP.setCantidad(cantidad);
     }
 
     public float getCantidad()
     {
-        return CuentaP.GetCantidad();
+        return cuentaP.getCantidad();
     }
 
     public String getTarjeta()
     {
-        return CuentaP.GetTarjeta();
+        return cuentaP.getTarjeta();
     }
 
     public int calcularIMC()
@@ -135,30 +137,33 @@ public class Persona implements MetodosPersona
         return opc;
     }
 
-    @Override
     public void GeneraDNI()
     {
-        String DNI = String.valueOf(new Random().nextLong());
-        if(DNI.length() > 8){
-            DNI = DNI.substring(0,8);
+        String dni = String.valueOf(new Random().nextInt());
+        /*if(dni.length() > 8){
+            dni = dni.substring(0,8);
+        }*/
+        dni = String.format("%1$8d",dni);
+        if(dni.length() < 8){
         }
-        this.DNI = DNI;
+        if(dni.length() >= 8){
+            dni = dni.substring(0,8);
+        }
+        if (dni.charAt(0) == '-'){
+
+        }
+
+        this.dni = dni;
+
+
         /*
-        //this.DNI.format("%020d",1);
         String leftPad = String.format("%80d", 1);
         */
     }
 
     public boolean esMayorDeEdad()
     {
-        if (this.edad >= 18)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return this.edad >= 18;
     }
 
     public void comprobarSexo(char sexo)
@@ -170,26 +175,24 @@ public class Persona implements MetodosPersona
     }
 
 
-    @Override
+
     public String toString(){
         String Datos = "nombre: " + this.nombre + "\n" +
                 "edad: " + this.edad + "\n" +
-                "DNI: " + this.getDNI() + "\n" +
+                "DNI: " + this.getDni() + "\n" +
                 "peso: " + this.peso + "\n" +
                 "altura: " + this.altura + "\n" +
-                this.CuentaP.toString();
+                this.cuentaP.toString();
 
         return Datos;
     }
 
-    @Override
-    public void GenTexto(){
-        String Datos = "nombre: " + this.nombre + "\n" +
-                "edad: " + this.edad + "\n" +
-                "DNI: " + this.getDNI() + "\n" +
-                "peso: " + this.peso + "\n" +
-                "altura: " + this.altura + "\n" +
-                this.CuentaP.toString();
+
+    public void genTexto(){
+        this.fileWriter(this.toString());
+    }
+
+    public void fileWriter(String datos){
         FileWriter fichero = null;
         PrintWriter pw = null;
         try
@@ -197,7 +200,7 @@ public class Persona implements MetodosPersona
             fichero = new FileWriter("C://Users//Pc//Desktop//Datos.txt");
             pw = new PrintWriter(fichero);
 
-            pw.println(Datos);
+            pw.println(datos);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -211,11 +214,11 @@ public class Persona implements MetodosPersona
         }
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getDni() {
+        return dni;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setDni(String dni) {
+        this.dni = dni;
     }
 }
