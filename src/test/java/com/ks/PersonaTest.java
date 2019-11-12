@@ -33,12 +33,13 @@ public class PersonaTest extends TestCase
 
     public void testGeneraDNI()
     {
-        Persona generandoDNI = new Persona();
 
+        System.out.println(" ------------ INICIANDO EL TEST DE testGeneraDNI() en la clase " + this.getClass().getName());
         for (int i = 1; i <= 1000;i++){
-            generandoDNI.GeneraDNI();
-            System.out.println(generandoDNI.getDni());
+            Persona generandoDNI = new Persona();
+            //System.out.println(generandoDNI.getDni());
             Assert.assertEquals(8,generandoDNI.getDni().length());
+            Assert.assertTrue(Long.parseLong(generandoDNI.getDni()) > 0);
         }
     }
 
@@ -62,6 +63,7 @@ public class PersonaTest extends TestCase
 
     public void testComprobarSexo()
     {
+        System.out.println(" ------------ INICIANDO EL TEST DE testComprobarSexo en la clase " + this.getClass().getName());
         Persona Mujer = new Persona();
         Mujer.setSexo('M');
         Mujer.comprobarSexo('M');
