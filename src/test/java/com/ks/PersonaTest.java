@@ -35,7 +35,7 @@ public class PersonaTest extends TestCase
     {
         Persona generandoDNI = new Persona();
 
-        for (int i = 1; i <= 100;i++){
+        for (int i = 1; i <= 1000;i++){
             generandoDNI.GeneraDNI();
             System.out.println(generandoDNI.getDni());
             Assert.assertEquals(8,generandoDNI.getDni().length());

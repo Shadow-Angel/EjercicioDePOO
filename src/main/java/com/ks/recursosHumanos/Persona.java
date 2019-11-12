@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.util.Random;
 
+import static java.lang.Math.abs;
 import static java.lang.Math.pow;
 
 public class Persona
@@ -139,23 +140,11 @@ public class Persona
 
     public void GeneraDNI()
     {
-        String dni = String.valueOf(new Random().nextInt());
-        /*if(dni.length() > 8){
-            dni = dni.substring(0,8);
-        }*/
-        dni = String.format("%1$8d",dni);
-        if(dni.length() < 8){
-        }
+        String dni = String.valueOf(abs(new Random().nextLong()));
         if(dni.length() >= 8){
             dni = dni.substring(0,8);
         }
-        if (dni.charAt(0) == '-'){
-
-        }
-
         this.dni = dni;
-
-
         /*
         String leftPad = String.format("%80d", 1);
         */

@@ -10,7 +10,6 @@ public class Main {
     public static void main(String[] args) {
         Scanner leer = new Scanner(System.in);
         Persona pers = new Empleado();
-        pers.GeneraDNI();
         System.out.println("Bienvenido, teclea el nombre");
         pers.setNombre(leer.next());
         System.out.println("teclea la edad");
